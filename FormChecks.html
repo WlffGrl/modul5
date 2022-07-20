@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tugas Implementasi Interface</title>
+</head>
+
+<body>
+    <form name="formTugas" action="" onsubmit="return validateForm()" method="POST">
+        <input type="text" name="username" id="username" placeholder="Username"><br>
+        <input type="password" name="password" id="pass" placeholder="Password"><br>
+        <input type="password" name="repeat" id="repeat" placeholder="Ulangi Password"><br>
+        <input type="text" name="email" id="email" placeholder="Email"><br>
+        <input type="text" name="telp" id="telp" placeholder="NomorTelpon"><br>
+        <textarea id="alamat" style="width: 167px;">Alamat</textarea><br>
+        <input type="submit" name="" value="Submit">
+    </form>
+    <SCript type="text/javascript">
+        function validateForm() {
+            var username = document.formTugas.username.value;
+            if(username.length <= 3 || username.length >= 15){
+                alert ("Username harus berisi 3-15 karakter!");
+                return false;
+            }
+            var password = document.formTugas.password.value;
+            if(password.length <= 4){
+                alert ("Password harus lebih dari 4 digit");
+                return false;
+            }
+            var repeat = document.formTugas.repeat.value;
+            if(repeat != password) {
+                alert("Password harus sama!!");
+                return false;
+            }
+            var email = document.formTugas.email.value;
+            var email1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if(!(email.match(email1))) {
+                document.formTugas.email.focus();
+                alert("Masukan format email")
+            }
+            var telp = document.formTugas.telp.value;
+            if(telp.length < 10 || telp.length > 12) {
+                alert("No telepon harus berisi 10-12 nomor");
+                return false;
+            }
+            var alamat = document.formTugas.alamat.value;
+            if(alamat == "") {
+                alert("Alamat tidak boleh kosong!!");
+                return false;
+            } else {
+            return true;
+			}
+        }
+    </SCript>
+</body>
+
+</html>
